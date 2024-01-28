@@ -1,0 +1,189 @@
+<template>
+
+  <q-drawer
+      v-model="drawerState"
+      bordered
+      @hide="$emit('hide')"
+    >
+      <q-list>
+        <!-- MAIN -->
+        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.main" :key="index">
+          <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
+          <span class="q-pl-sm">{{ menu.name }}</span>
+        </div>
+
+        <q-separator class="q-mx-lg q-my-sm"/>
+
+        <!-- USER -->
+        <div class="text-bold q-pl-lg q-py-sm">
+          <span>You</span>
+          <q-icon class="q-pl-xs" name="arrow_forward_ios"/>
+        </div>
+
+        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.user" :key="index">
+          <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
+          <span class="q-pl-sm">{{ menu.name }}</span>
+        </div>
+        <q-separator class="q-mx-lg q-my-sm"/>
+
+        <!-- SUBSCRIPTTION -->
+        <div class="text-bold q-pl-lg q-py-sm">
+          Subscriptions
+        </div>
+        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.subscription" :key="index">
+          <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
+          <span class="q-pl-sm">{{ menu.name }}</span>
+        </div>
+        <q-separator class="q-mx-lg q-my-sm"/>
+
+        <!-- EXPLORE -->
+        <div class="text-bold q-pl-lg q-py-sm">
+          Explore
+        </div>
+        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.explore" :key="index">
+          <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
+          <span class="q-pl-sm">{{ menu.name }}</span>
+        </div>
+        <q-separator class="q-mx-lg q-my-sm"/>
+
+        <!-- AccSetting -->
+        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.accSetting" :key="index">
+          <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
+          <span class="q-pl-sm">{{ menu.name }}</span>
+        </div>
+
+      </q-list>
+    </q-drawer>
+</template>
+<script>
+
+export default {
+  components: {
+
+  },
+  data() {
+    return {
+      drawerState: this.value,
+      tabsInfo: {
+        main: [
+          {
+            name: 'Home',
+            icon: 'home'
+          },
+          {
+            name: 'Shorts',
+            icon: 'shortcut'
+          },
+          {
+            name: 'Subscriptions',
+            icon: 'subscriptions'
+          }
+        ],
+        user: [
+          {
+            name: 'Your channel',
+            icon: 'person'
+          },
+          {
+            name: 'History',
+            icon: 'history'
+          },
+          {
+            name: 'Your videos',
+            icon: 'play_circle_outline'
+          },
+          {
+            name: 'Watch later',
+            icon: 'schedule'
+          },
+          {
+            name: 'Your clips',
+            icon: 'content_cut'
+          }
+        ],
+        subscription:[
+          {
+            name: 'Pewdiepie',
+            icon: 'account_circle'
+          },
+          {
+            name: 'Bruh',
+            icon: 'account_circle'
+          },
+          {
+            name: 'Jay',
+            icon: 'account_circle'
+          }
+        ],
+        explore:[
+          {
+            name: 'Trending',
+            icon: 'whatshot'
+          },
+          {
+            name: 'Music',
+            icon: 'music_note'
+          },
+          {
+            name: 'Movies',
+            icon: 'movie'
+          },
+          {
+            name: 'Gaming',
+            icon: 'sports_esports'
+          },
+          {
+            name: 'News',
+            icon: 'feed'
+          },
+          {
+            name: 'Sports',
+            icon: 'emoji_events'
+          },
+          {
+            name: 'Fashion & Beauty',
+            icon: 'dry_cleaning'
+          }
+        ],
+        accSetting: [
+          {
+            name: 'Settings',
+            icon: 'settings'
+          },
+          {
+            name: 'Report history',
+            icon: 'flag'
+          },
+          {
+            name: 'Help',
+            icon: 'help_outline'
+          },
+          {
+            name: 'Send feedback',
+            icon: 'feedback'
+          },
+        ]
+      }
+    }
+  },
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+  watch: {
+    value(val) {
+      console.log('change val')
+      this.drawerState = !this.drawerState
+    }
+  },
+  async mounted () {
+    console.log('Menu')
+    console.log(this.value)
+  },
+  emits: ['hide']
+}
+</script>
+<style>
+</style>
