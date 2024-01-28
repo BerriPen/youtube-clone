@@ -4,18 +4,15 @@
 
     <!-- Left Tab -->
     <div class="row q-pt-lg full-width">
-      <div class="col-1 justice-left q-pt-sm" v-if="!hideSideMenu">
-        <SideMenu/>
-        <!-- <q-list>
-          <div class="text-center q-py-sm" v-for="(menu, index) in tabsInfo.main" :key="index">
-            <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
-            <div class="q-pt-sm" style="font-size: 11px;">{{ menu.name }}</div>
-          </div>
-        </q-list> -->
-      </div>
+      <q-list>
+        <q-item class="col-1 justice-left q-pt-sm" v-if="!hideSideMenu">
+          <SideMenu/>
+        </q-item>
+      </q-list>
+
 
       <!-- Top Tag -->
-      <div class="col" style="background-color: aqua;">
+      <div class="col" style="background-color: #ffffff;">
         <div style="background-color:#ffffff;">
           <div class="q-mx-lg q-pb-sm">
             <span v-for="(tag, index) in tags" :key="index">
@@ -32,7 +29,6 @@
           <div class="col" v-for="(video, index) in videos" :key="index">
             <HomeThumbnail :videoInfo="video"/>
           </div>
-
         </div>
       </div>
     </div>
@@ -88,22 +84,26 @@ export default {
           ],
       videos: [
         {
-          title: 'The Prince of Egypt Musical | When You Believe',
-          channel: 'The Prince Of Egypt Musical',
-          url: 'https://www.youtube.com/watch?v=bHi-1Ekk3KE'
+          title: 'THE RESIDENT EVIL MOVIES - Theyre So Bad I Cant Help But Love Them',
+          channel: 'Elvis The Alien',
+          icon: 'person',
+          views: '8.4M views  2 years ago',
+          url: 'https://i.ytimg.com/vi/Sk5cUoSRaPE/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAIgGcvSHDxlxm40JBJdlZC8D4jag'
         },
         {
           title: 'Andrew Garfield - Therapy (with Vanessa Hudgens) (Official Audio)',
           channel: 'Andrew Garfield ♪',
-          url: 'https://i.ytimg.com/vi/sYXZmxNyHIk/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAGGHlvUgBYqUgAdx-b2yQmIcaTNw'
+          icon: 'person',
+          views: '557K views . 2 years ago',
+          url: 'https://i.ytimg.com/vi/GBiVXdxRoQY/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDBV6s-3-9n1TSGSgrvRuptT_mApw'
         },
         {
           title: 'Disturbing Posts I Found on Social Media',
           channel: 'LazyMasquerade',
-          url: 'https://i.ytimg.com/vi/GBiVXdxRoQY/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDBV6s-3-9n1TSGSgrvRuptT_mApw'
+          icon: 'person',
+          views: '705K views . 7 months ago',
+          url: 'https://i.ytimg.com/vi/sYXZmxNyHIk/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAGGHlvUgBYqUgAdx-b2yQmIcaTNw'
         }
-
-
       ]
     }
   },

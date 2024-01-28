@@ -1,6 +1,6 @@
 <template>
 <q-list>
-  <div class="text-center q-py-sm" v-for="(menu, index) in main" :key="index">
+  <div class="text-center q-py-sm" v-for="(menu, index) in main" :key="index" clickable>
     <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
     <div class="q-pt-sm" style="font-size: 11px;">{{ menu.name }}</div>
   </div>

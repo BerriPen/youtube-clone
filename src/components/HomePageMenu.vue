@@ -5,51 +5,65 @@
       bordered
       @hide="$emit('hide')"
     >
-      <q-list>
+      <q-list padding>
         <!-- MAIN -->
-        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.main" :key="index">
+
+        <q-item class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.main" :key="index" clickable>
           <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
           <span class="q-pl-sm">{{ menu.name }}</span>
-        </div>
+        </q-item>
 
         <q-separator class="q-mx-lg q-my-sm"/>
 
         <!-- USER -->
-        <div class="text-bold q-pl-lg q-py-sm">
+        <q-item class="text-bold q-pl-lg q-py-sm" clickable>
           <span>You</span>
           <q-icon class="q-pl-xs" name="arrow_forward_ios"/>
-        </div>
+        </q-item>
 
-        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.user" :key="index">
+        <q-item class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.user" :key="index" clickable>
           <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
           <span class="q-pl-sm">{{ menu.name }}</span>
-        </div>
+        </q-item>
         <q-separator class="q-mx-lg q-my-sm"/>
 
         <!-- SUBSCRIPTTION -->
-        <div class="text-bold q-pl-lg q-py-sm">
+        <q-item class="text-bold q-pl-lg q-py-sm" clickable>
           Subscriptions
-        </div>
-        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.subscription" :key="index">
+        </q-item>
+        <q-item class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.subscription" :key="index" clickable>
           <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
           <span class="q-pl-sm">{{ menu.name }}</span>
-        </div>
+        </q-item>
         <q-separator class="q-mx-lg q-my-sm"/>
 
         <!-- EXPLORE -->
-        <div class="text-bold q-pl-lg q-py-sm">
+        <q-item class="text-bold q-pl-lg q-py-sm" clickable>
           Explore
-        </div>
-        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.explore" :key="index">
+        </q-item>
+
+        <q-item class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.explore" :key="index" clickable>
           <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
           <span class="q-pl-sm">{{ menu.name }}</span>
-        </div>
+        </q-item>
+
         <q-separator class="q-mx-lg q-my-sm"/>
 
         <!-- AccSetting -->
-        <div class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.accSetting" :key="index">
+        <q-item class="text-bold q-pl-md q-py-sm" v-for="(menu, index) in tabsInfo.accSetting" :key="index" clickable>
           <q-icon color="blue-grey-10" size="sm" :name="menu.icon" />
           <span class="q-pl-sm">{{ menu.name }}</span>
+        </q-item>
+
+        <q-separator class="q-mx-lg q-my-sm"/>
+
+        <!-- ExtraOps -->
+        <div class="q-px-md text-blue-grey-10">
+          <div class="row items center q-gutter-x-sm q-gutter-y-xs" >
+            <a v-for="(menu, index) in tabsInfo.accSetting" :key="index"  class="YL__drawer-footer-link">
+              {{ menu.name }}
+            </a>
+          </div>
         </div>
 
       </q-list>
@@ -162,6 +176,15 @@ export default {
             name: 'Send feedback',
             icon: 'feedback'
           },
+        ],
+        extraops: [
+        { name: 'About' },
+        { name: 'Press' },
+        { name: 'Copyright' },
+        { name: 'Contact us' },
+        { name: 'Creators' },
+        { name: 'Advertise' },
+        { name: 'Developers' }
         ]
       }
     }
