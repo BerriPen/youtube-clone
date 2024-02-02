@@ -32,19 +32,32 @@
     </q-toolbar>
   </q-header>
 
+  <!-- <q-footer flat elevated >
+    <q-toolbar v-if="!isMobile">
+      <q-list>
+        <q-item class="row q-pt-sm" v-if="!hideSideMenu">
+          <SideMenu/>
+        </q-item>
+      </q-list>
+    </q-toolbar>
+  </q-footer> -->
+
   <!-- Drawer -->
   <HomePageMenu @hide="$emit('toggleDrawer', false)" :value="leftDrawerOpen"/>
 </template>
 <script>
 import HomePageMenu from './HomePageMenu.vue'
+import SideMenu from './SideMenu.vue'
 
 export default {
   components: {
-    HomePageMenu
+    HomePageMenu,
+    // SideMenu
   },
   data () {
     return {
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
+      isMobile: this.$q.platform.is.mobile
     }
   },
   watch: {

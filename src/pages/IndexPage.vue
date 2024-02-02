@@ -4,17 +4,27 @@
 
     <!-- Left Tab -->
     <div class="row q-pt-lg full-width">
-      <q-list>
+      <q-list v-if="!isMobile">
         <q-item class="col-1 justice-left q-pt-sm" v-if="!hideSideMenu">
           <SideMenu/>
         </q-item>
       </q-list>
 
+      <!-- <div class="text-center">
+        <v-pagination v-model="page" :length="15" :total-visible="7">
+          <span v-for="(tag, index) in tags" :key="index">
+              <q-btn unelevated size="sm" rounded class="q-pa-sm" color="grey-3" text-color="black" >
+                <div class="q-px-xs">{{ tag }}</div>
+              </q-btn>
+              &nbsp;
+            </span>
+        </v-pagination>
+      </div> -->
 
       <!-- Top Tag -->
-      <div class="col" style="background-color: #ffffff;">
+      <div class="col" style="background-color: #ffffff no-wrap;">
         <div style="background-color:#ffffff;">
-          <div class="q-mx-lg q-pb-sm">
+          <div class="row no-wrap q-mx-lg q-pb-sm">
             <span v-for="(tag, index) in tags" :key="index">
               <q-btn unelevated size="sm" rounded class="q-pa-sm" color="grey-3" text-color="black" >
                 <div class="q-px-xs">{{ tag }}</div>
@@ -25,9 +35,9 @@
         </div>
 
         <!-- VIDEO -->
-        <div class="row items-center">
-          <div class="col" v-for="(video, index) in videos" :key="index">
-            <HomeThumbnail :videoInfo="video"/>
+        <div class="q-pa-md row">
+          <div class="col-6 col-md-4" v-for="(video, index) in videos" :key="index">
+            <HomeThumbnail :videoInfo="video" @click="$router.push({path: '/watch', params: {text: 'hello'}})"/>
           </div>
         </div>
       </div>
@@ -59,6 +69,7 @@ export default {
       darkMode: false,
       leftDrawerOpen: false,
       hideSideMenu: false,
+      isMobile: this.$q.platform.is.mobile,
       tabsInfo: {
         main: [
           {
