@@ -18,19 +18,27 @@
 
         <q-space/>
 
-        <q-input rounded outlined v-model="text" color="blue-grey-10" dense placeholder="Search" style="width: 50%; text-align: right;">
+        <q-input
+          rounded
+          outlined
+          v-model="text"
+          color="blue-grey-10"
+          dense
+          placeholder="Search"
+          style="width: 50%;
+          text-align: right;">
           <template v-slot:append>
             <q-btn color="blue-grey-10" flat round dense icon="search"/>
           </template>
         </q-input>
 
-        <q-btn color="blue-grey-10" flat round dense icon="mic"/>
+        <q-btn class="on-left" color="blue-grey-10" flat round dense icon="mic"/>
         <q-space/>
         <q-btn color="blue-grey-10" flat round dense icon="file_upload"/>
         <q-btn color="blue-grey-10" flat round dense icon="notifications"/>
         <q-btn color="blue-grey-10" flat round dense icon="account_circle"/>
-    </q-toolbar>
-  </q-header>
+      </q-toolbar>
+    </q-header>
 
   <!-- <q-footer flat elevated >
     <q-toolbar v-if="!isMobile">

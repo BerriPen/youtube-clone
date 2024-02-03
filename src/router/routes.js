@@ -5,7 +5,7 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: 'watch', component: () => import('pages/VideoPlaying.vue') }
+      { path: 'watch/:id', component: () => import('pages/VideoPlaying.vue'), props: true }
     ]
   },
 
