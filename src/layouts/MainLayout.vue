@@ -5,8 +5,8 @@
     </q-page-container>
   </q-layout>
 </template>
-
 <script>
+// has dis/spa
 import { defineComponent, ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 import HomePageMenu from 'src/components/HomePageMenu.vue'
